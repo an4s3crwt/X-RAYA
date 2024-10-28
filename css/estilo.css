@@ -1,0 +1,18 @@
+
+#container-tablero{
+    max-width: 730px;
+}
+ 
+#tablero{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+ 
+.casilla{
+    border: 2.5px solid rgba(18, 8, 20, 0.088);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 4em; 
+}
