@@ -1,22 +1,59 @@
-<div id="jugadorA" class="jugador">
-    <img src="o.jpg" id="fichaA1" draggable="true">
-    <img src="o.jpg" id="fichaA2" draggable="true">
-    <img src="o.jpg" id="fichaA3" draggable="true">
-</div>
-<div id="jugadorB" class="jugador">
-    <img src="x.jpg" id="fichaB1" draggable="true">
-    <img src="x.jpg" id="fichaB2" draggable="true">
-    <img src="x.jpg" id="fichaB3" draggable="true">
-</div>
+<!DOCTYPE html>
+<html>
 
-<div id="tablero">
-    <div class="casilla" id="casilla0"></div>
-    <div class="casilla" id="casilla1"></div>
-    <div class="casilla" id="casilla2"></div>
-    <div class="casilla" id="casilla3"></div>
-    <div class="casilla" id="casilla4"></div>
-    <div class="casilla" id="casilla5"></div>
-    <div class="casilla" id="casilla6"></div>
-    <div class="casilla" id="casilla7"></div>
-    <div class="casilla" id="casilla8"></div>
-</div>
+<head>
+    <meta charset="UTF-8">
+    <title>3 en raya con JavaScript utilizando GIT</title>
+    <link type="text/css" href="style.css" rel="stylesheet">
+</head>
+
+<body>
+
+    <div id="jugadorA" class="jugador">
+        <p id="victoriasA">12312</p>
+        <img src="imagenes/o.jpg" ondrop="drop(event)" ondragover="allowDrop(event)" width="50px" height="50px" id="fichaA1" draggable="true">
+        <img src="imagenes/o.jpg" ondrop="drop(event)" ondragover="allowDrop(event)" width="50px" height="50px" id="fichaA2" draggable="true">
+        <img src="imagenes/o.jpg" ondrop="drop(event)" ondragover="allowDrop(event)" width="50px" height="50px" id="fichaA3" draggable="true">
+    </div>
+    <div id="jugadorB" class="jugador">
+        <p id="victoriasB">23123</p>
+        <img src="imagenes/x.jpg" ondrop="drop(event)" ondragover="allowDrop(event)" width="50px" height="50px" id="fichaB1" draggable="true">
+        <img src="imagenes/x.jpg" ondrop="drop(event)" ondragover="allowDrop(event)" width="50px" height="50px" id="fichaB2" draggable="true">
+        <img src="imagenes/x.jpg" ondrop="drop(event)" ondragover="allowDrop(event)" width="50px" height="50px" id="fichaB3" draggable="true">
+    </div>
+
+    <div id="tablero">
+        <p style="text-align: center;"><h3><b>Juego 3 en RAYA</b></h3></p>
+        <p><h2>¡¡CON DRAG AND DROP!!</h2></p>
+        <div id="turnoJugador"></div>
+        <div ondrop="drop(event)" ondragover="allowDrop(event)" class="casilla" id="casilla0">
+            
+        </div>
+        <div ondrop="drop(event)" ondragover="allowDrop(event)" class="casilla" id="casilla1">
+
+        </div>
+        <div ondrop="drop(event)" ondragover="allowDrop(event)" class="casilla" id="casilla2">
+
+        </div>
+        <div ondrop="drop(event)" ondragover="allowDrop(event)" class="casilla" id="casilla3">
+
+        </div>
+        <div ondrop="drop(event)" ondragover="allowDrop(event)" class="casilla" id="casilla4">
+
+        </div>
+        <div class="casilla" id="casilla5">
+
+        </div>
+        <div ondrop="drop(event)" ondragover="allowDrop(event)" class="casilla" id="casilla6">
+
+        </div>
+        <div ondrop="drop(event)" ondragover="allowDrop(event)" class="casilla" id="casilla7">
+
+        </div>
+        <div ondrop="drop(event)" ondragover="allowDrop(event)" class="casilla" id="casilla8">
+
+        </div>
+    </div>
+</body>
+
+</html>
