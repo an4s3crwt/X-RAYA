@@ -1,6 +1,7 @@
 
 #container-tablero{
-    max-width: 730px;
+    max-width: 500px;
+    margin: 0 auto;
 }
  
 #tablero{
@@ -10,9 +11,12 @@
 }
  
 .casilla{
-    border: 2.5px solid rgba(18, 8, 20, 0.088);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 4em; 
+    border: 2px solid rgb(18, 8, 20);
+    margin: 5px;
+    width: 140px;
+    height: 140px;
+    padding: 20px;
+    justify-content: center; 
+    align-items: center; 
 }
+
