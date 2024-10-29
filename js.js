@@ -40,7 +40,9 @@ function comprobar(){
         }
 }
 
-
+document.querySelectorAll('img').forEach(img =>{
+    img.addEventListener('dragstart', drag);
+});
 
     document.querySelectorAll('img').forEach(img =>{
         img.addEventListener('dragstart', drag);
