@@ -1,49 +1,112 @@
-let turnoJugador = "A"; // Inicialmente turno del jugador A (jugador "O")
+let gameBoard = ["", "", "", "", "", "", "", "", ""]; // Representa el tablero
+let turnoJugador = "A"; // Inicialmente turno del jugador A
+let victoriasA = 0; // Contadores de victorias
+let victoriasB = 0;
 
-// Función para inicializar el mensaje de turno
+// Actualizar el mensaje del turno
 function inicializarTurno() {
-    const turnoDiv = document.getElementById("turnoJugador");
-    turnoDiv.innerHTML = `Turno del jugador <img src="imagenes/o.jpg" width="20px" height="20px">`;
+  const turnoDiv = document.getElementById("turnoJugador");
+  turnoDiv.innerHTML = `Turno del jugador <img src="imagenes/o.jpg" width="20px" height="20px">`;
 }
 
-// Permitir el drop
+// Comprobar si alguien ha ganado
+function comprobarGanador() {
+  // Si el turno es A devolvemos A sino B
+  // turnoJugador por defecto a A
+  const currentPlayer = turnoJugador === "A" ? "A" : "B";
+
+  // Comprobar filas
+  if (
+    (gameBoard[0] === currentPlayer && gameBoard[1] === currentPlayer && gameBoard[2] === currentPlayer) ||
+    (gameBoard[3] === currentPlayer && gameBoard[4] === currentPlayer && gameBoard[5] === currentPlayer) ||
+    (gameBoard[6] === currentPlayer && gameBoard[7] === currentPlayer && gameBoard[8] === currentPlayer)
+  ) {
+    actualizarVictorias(currentPlayer);
+    return true;
+  }
+
+  // Comprobar columnas
+  if (
+    (gameBoard[0] === currentPlayer && gameBoard[3] === currentPlayer && gameBoard[6] === currentPlayer) ||
+    (gameBoard[1] === currentPlayer && gameBoard[4] === currentPlayer && gameBoard[7] === currentPlayer) ||
+    (gameBoard[2] === currentPlayer && gameBoard[5] === currentPlayer && gameBoard[8] === currentPlayer)
+  ) {
+    actualizarVictorias(currentPlayer);
+    return true;
+  }
+
+  // Comprobar diagonales
+  if (
+    (gameBoard[0] === currentPlayer && gameBoard[4] === currentPlayer && gameBoard[8] === currentPlayer) ||
+    (gameBoard[2] === currentPlayer && gameBoard[4] === currentPlayer && gameBoard[6] === currentPlayer)
+  ) {
+    actualizarVictorias(currentPlayer);
+    return true;
+  }
+
+  return false;
+}
+
+// Función para actualizar el contador de victorias y mostrarlo en el HTML
+function actualizarVictorias(jugador) {
+  if (jugador === "A") {
+    // Incrementamos las victorias
+    victoriasA++;
+    // Modificamos el contador en el HTML
+    document.getElementById("victoriasA").textContent = "Victorias" + victoriasA;
+  } else {
+    victoriasB++;
+    document.getElementById("victoriasB").textContent = "Victorias" + victoriasB;
+  }
+}
+
+// Permitimos drop
 function allowDrop(event) {
-    event.preventDefault();
+  event.preventDefault();
 }
 
 // Guardar el ID de la ficha cuando comienza a arrastrarse
 function drag(event) {
-    const fichaId = event.target.id;
+  // Obtenemos el id de la ficha que hemos cogido
+  const fichaId = event.target.id;
 
-    // Restringir el movimiento si no es el turno del jugador correcto
-    if ((turnoJugador === "A" && fichaId.startsWith("fichaA")) || 
-        (turnoJugador === "B" && fichaId.startsWith("fichaB"))) {
-        event.dataTransfer.setData("text", fichaId);
-    } else {
-        event.preventDefault();
-    }
+  // Combrobamos que el turno de jugador y la ficha escogida sean correctas
+  if ((turnoJugador === "A" && fichaId.startsWith("fichaA")) ||
+    (turnoJugador === "B" && fichaId.startsWith("fichaB"))) {
+    event.dataTransfer.setData("text", fichaId);
+  } else {
+    // Si no es el tuno del jugador correcto cancelamos el movimiento
+    event.preventDefault();
+  }
 }
 
 // Mover la ficha al soltarla en una celda vacía
 function drop(event) {
-    event.preventDefault();
+  event.preventDefault();
 
-    const fichaId = event.dataTransfer.getData("text");
-    const ficha = document.getElementById(fichaId);
+  // Obtenemos el id de la celda donde hemos soltado la ficha
+  const fichaId = event.dataTransfer.getData("text");
+  const ficha = document.getElementById(fichaId);
 
-    // Verificar si la celda destino ya tiene una ficha
-    if (!event.target.hasChildNodes()) {
-        // Mover la ficha arrastrada a la nueva celda
-        event.target.appendChild(ficha);
+  // Si no contiene nada  añadimos la ficha
+  if (!event.target.hasChildNodes()) {
+    event.target.appendChild(ficha);
 
-        // Cambiar el turno al otro jugador
-        turnoJugador = turnoJugador === "A" ? "B" : "A";
-        
-        // Actualizar el mensaje de turno en pantalla con la imagen correspondiente
-        const turnoDiv = document.getElementById("turnoJugador");
-        turnoDiv.innerHTML = `Turno del jugador <img src="imagenes/${turnoJugador === "A" ? "o.jpg" : "x.jpg"}" width="20px" height="20px">`;
+    // Convertimos los elementos obtenidos a un array, event.target 
+    // representa con que celda a interactuado el usuario.
+    const cellIndex = Array.from(document.querySelectorAll('#tablero .casilla')).indexOf(event.target);
+    gameBoard[cellIndex] = turnoJugador;
+
+    // Si alguien gana reiniciamos el tablero y el turno
+    if (comprobarGanador()) {
+      gameBoard = ["", "", "", "", "", "", "", "", ""];
+    } else {
+      // Si nadie ha ganado intercambiamos el turno 
+      turnoJugador = turnoJugador === "A" ? "B" : "A";
+      const turnoDiv = document.getElementById("turnoJugador");
+      turnoDiv.innerHTML = `Turno del jugador <img src="imagenes/${turnoJugador === "A" ? "o.jpg" : "x.jpg"}" width="20px" height="20px">`;
     }
+  }
 }
-
-// Llamar a la función para inicializar el turno cuando se cargue la página
+// Por defecto tiene el turno el jugador A
 window.onload = inicializarTurno;
