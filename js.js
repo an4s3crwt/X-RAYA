@@ -1,23 +1,24 @@
-function allowDrope(e) {
+function allowDrop(e) {
     e.preventDefault();
 }
-
 //Función drag para poder arrastrar las fichas
 function drag(e) {
-    e.dataTransfer.setData("text", e.target.id);
+    e.dataTransfer.setData("text/plain", e.target.id);
 }
 
 function drop(e) {
     e.preventDefault();
-    let fichaId = e.dataTransfer.getData("text"); //recoger el data de la ficha draggeada
+    let fichaId = e.dataTransfer.getData("text/plain"); //recoger el data de la ficha draggeada
     let ficha = document.getElementById(fichaId);
 
     //comprobar si es el turno del jugador que toca
 
-    //comprobar si la casilla ya tiene ficha
-
-    //colocal la ficha en la casilla en la que se droppea
-    if (e.target.appendChild(fecha));
+    //comprobar si la casilla ya tiene ficha y si no la coloca
+    if (!e.target.hasChildNodes()) {
+        e.target.appendChild(ficha);
+    } else {
+        alert("Esta casilla ya tiene una ficha.");
+    }
     comprobar();
     //llamar a la fucnión que cambia de turno
 }
