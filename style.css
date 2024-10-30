@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 #JugagorA, #JugadorB {
     border: 2px;
     border-color: black;
@@ -8,4 +9,40 @@
     border: 4px;
     border-color: black;
     border-style: solid;
+=======
+#jugadorA, #jugadorB {
+    border: 4px;
+    border-color: black;
+    border-style: solid;   
+}
+
+#jugadorA {
+    float: left;
+}
+
+#jugadorB {
+    float: right;
+}
+
+#tablero {
+    border: 6px;
+    border-color: black;
+    border-style: solid;
+    position: absolute;
+    left: 40%;
+    width: 200px; 
+    height: 400px;
+    padding: 10px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.casilla {
+    border: 1xp;
+    border-color: black;
+    border-style: solid;
+    width: 50px;
+    height: 50px;
+    margin: 5px;
+>>>>>>> 1c2cdb35630a77a6a4b101fa003682ebe79a4b69
 }
