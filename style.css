@@ -1,0 +1,11 @@
+#JugagorA, #JugadorB {
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+}
+
+#tablero {
+    border: 4px;
+    border-color: black;
+    border-style: solid;
+}
