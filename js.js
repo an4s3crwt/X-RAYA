@@ -1,4 +1,7 @@
-function allowDrope(e) {
+
+let turno ="A";
+
+function allowDrop(e) {
     e.preventDefault();
 }
 
@@ -13,16 +16,26 @@ function drop(e) {
     let ficha = document.getElementById(fichaId);
 
     //comprobar si es el turno del jugador que toca
+    if ((fichaId.includes("A") && turno !== "A") || (fichaId.includes("B") && turno !== "B")) {
+        alert("No es tu turno");
+        return;
+    }
 
     //comprobar si la casilla ya tiene ficha
-
+    if (!e.target.classList.contains("casilla") || e.target.children.length > 0) {
+        alert("Casilla ocupada");
+        return;
+    }
     //colocal la ficha en la casilla en la que se droppea
-    if (e.target.appendChild(fecha));
+    e.target.appendChild(ficha);
     comprobar();
-    //llamar a la fucnión que cambia de turno
+    cambiarTurno();//llamar a la fucnión que cambia de turno
 }
 
-
+function cambiarTurno() {
+    turno = turno === "A" ? "B" : "A";
+    document.getElementById("turnoJugador").textContent = `Turno del Jugador ${turno}`;
+}
 
 
 function comprobar() {
@@ -43,7 +56,7 @@ function comprobar() {
     y asigna cada una de las posiciones a las variables pos1, pos2, pos3
     
     por ejemplo, en la primera iteración [pos1,pos2,pos3] será [0,1,2] las de la primera fila*/
-    for (let i = 0; i < combinaciones; i++) {
+    for (let i = 0; i < combinaciones.length; i++) {
         let [pos1, pos2, pos3] = combinaciones[i];
 
 
