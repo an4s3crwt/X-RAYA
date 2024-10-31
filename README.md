@@ -66,7 +66,7 @@ Este proyecto es un juego de "Tres en Línea" que se puede jugar en el navegador
 
 - **index.html** 📄: Estructura del tablero y áreas de fichas de cada jugador.
 - **style.css** 🎨: Estilos para el tablero, áreas de jugadores y mensajes.
-- **script.js** 🚀: Lógica del juego y funciones principales (drag and drop, turnos, detección de ganadores, etc.).
+- **js.js** 🚀: Lógica del juego y funciones principales (drag and drop, turnos, detección de ganadores, etc.).
 - **img/o.jpg** y **img/x.jpg** 🖼️: Imágenes de fichas para los jugadores A y B.
 
 ## 💻 Tecnologías
