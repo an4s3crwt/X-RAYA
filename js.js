@@ -1,29 +1,30 @@
 
-let turno ="A";
+let turno ="A"; //iniciar el turno
 
-function allowDrop(e) {
-    e.preventDefault();
+function allowDrop(e) { 
+    e.preventDefault();//evitar el comportamiento por defecto del nvegador
 }
 
 //Función drag para poder arrastrar las fichas
 function drag(e) {
-    e.dataTransfer.setData("text", e.target.id);
+    e.dataTransfer.setData("text", e.target.id);//utiliza dataTransfer para almacenar el Id del elemento 
 }
 
+
 function drop(e) {
-    e.preventDefault();
-    let fichaId = e.dataTransfer.getData("text"); //recoger el data de la ficha draggeada
-    let ficha = document.getElementById(fichaId);
+    e.preventDefault();//evitar el comportamiento x defecto del navegador
+    let fichaId = e.dataTransfer.getData("text"); //se recupera el id almacenado durante el drag
+    let ficha = document.getElementById(fichaId);//
 
     //comprobar si es el turno del jugador que toca
     if ((fichaId.includes("A") && turno !== "A") || (fichaId.includes("B") && turno !== "B")) {
-        alert("No es tu turno");
+        mostrarMensaje("No es tu turno",2000);
         return;
     }
 
     //comprobar si la casilla ya tiene ficha
     if (!e.target.classList.contains("casilla") || e.target.children.length > 0) {
-        alert("Casilla ocupada");
+        mostrarMensaje("Casilla ocupada",3000);
         return;
     }
     //colocal la ficha en la casilla en la que se droppea
@@ -96,21 +97,19 @@ function comprobar() {
 
 }
 
-
-//comprobar que jugador ha ganado según el src (la imagen) alamcenada en ficha1
-function ganar(ficha1) {
-    let ganador = ficha1.includes("o.jpg") ? "Jugador A" : "Jugador B";
-    alert(`${ganador} HA GANADO!!!!!!!!!!!`);
+function mostrarMensaje(texto, duracion){
+    let mensajeVentana = window.open("", "Mensaje", "width=300,height=100");
+    mensajeVentana.document.write(`<p>${texto}</p>`);
+    setTimeout(() => {
+        mensajeVentana.close();
+    }, duracion);
 
 }
 
 
+//comprobar que jugador ha ganado según el src (la imagen) alamcenada en ficha1
+function ganar(ficha1) {
+    let ganador = ficha1.includes("o.jpg") ? "Jugador A" : "Jugador B";
+    mostrarMensaje(`${ganador} HA GANADO!!!!!!!!!!!`,3000);
 
-
-
-
-
-
-
-
-
+}

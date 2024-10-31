@@ -1,3 +1,4 @@
+
 #jugadorA, #jugadorB {
     border: 4px;
     border-color: black;
@@ -6,10 +7,12 @@
 
 #jugadorA {
     float: left;
+    margin-left: 200px;
 }
 
 #jugadorB {
     float: right;
+    margin-right: 200px;
 }
 
 #tablero {
@@ -32,4 +35,9 @@
     width: 50px;
     height: 50px;
     margin: 5px;
+}
+#victoriasA, #victoriasB{
+    text-align: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    size: 20px;
 }
