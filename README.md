@@ -2,7 +2,7 @@
 
 Este proyecto es un juego de "Tres en Línea" que se puede jugar en el navegador, desarrollado con JavaScript, HTML y CSS. Los jugadores pueden arrastrar y soltar fichas, y el sistema gestiona los turnos, muestra el marcador y detecta las combinaciones ganadoras.
 
-![Ejemplo del juego](assets/jj.jpg)
+![Ejemplo del juego](assets/Animation.gif)
 
 ## ✨ Funcionalidades
 
