@@ -98,7 +98,7 @@ function comprobar() {
 }
 
 function mostrarMensaje(texto, duracion){
-    let mensajeVentana = window.open("", "Mensaje", "width=300,height=100");
+    let mensajeVentana = window.open("", "width=300,height=100");
     mensajeVentana.document.write(`<p>${texto}</p>`);
     setTimeout(() => {
         mensajeVentana.close();
