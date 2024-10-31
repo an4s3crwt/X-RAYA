@@ -11,17 +11,17 @@
 
     <div id="jugadorA" class="jugador">
         <h3>Victorias</h3>
-        <p id="victoriasA">12313</p>
-        <img src="imagenes/o.jpg" ondrop="drop(event)" ondragover="allowDrop(event)" width="50px" height="50px" id="fichaA1" draggable="true">
-        <img src="imagenes/o.jpg" ondrop="drop(event)" ondragover="allowDrop(event)" width="50px" height="50px" id="fichaA2" draggable="true">
-        <img src="imagenes/o.jpg" ondrop="drop(event)" ondragover="allowDrop(event)" width="50px" height="50px" id="fichaA3" draggable="true">
+        <p id="victoriasA"></p>
+        <img src="img/o.jpg" ondragstart="drag(event)" width="50px" height="50px" id="fichaA1" draggable="true">
+        <img src="img/o.jpg" ondragstart="drag(event)" width="50px" height="50px" id="fichaA2" draggable="true">
+        <img src="img/o.jpg" ondragstart="drag(event)" width="50px" height="50px" id="fichaA3" draggable="true">
     </div>
     <div id="jugadorB" class="jugador">
         <h3>Victorias</h3>
-        <p id="victoriasB">23123</p>
-        <img src="imagenes/x.jpg" ondrop="drop(event)" ondragover="allowDrop(event)" width="50px" height="50px" id="fichaB1" draggable="true">
-        <img src="imagenes/x.jpg" ondrop="drop(event)" ondragover="allowDrop(event)" width="50px" height="50px" id="fichaB2" draggable="true">
-        <img src="imagenes/x.jpg" ondrop="drop(event)" ondragover="allowDrop(event)" width="50px" height="50px" id="fichaB3" draggable="true">
+        <p id="victoriasB"></p>
+        <img src="img/x.jpg" ondragstart="drag(event)" width="50px" height="50px" id="fichaB1" draggable="true">
+        <img src="img/x.jpg" ondragstart="drag(event)" width="50px" height="50px" id="fichaB2" draggable="true">
+        <img src="img/x.jpg" ondragstart="drag(event)" width="50px" height="50px" id="fichaB3" draggable="true">
     </div>
 
     <div id="tablero">
@@ -43,7 +43,7 @@
         <div ondrop="drop(event)" ondragover="allowDrop(event)" class="casilla" id="casilla4">
 
         </div>
-        <div class="casilla" id="casilla5">
+        <div ondrop="drop(event)" ondragover="allowDrop(event)" class="casilla" id="casilla5">
 
         </div>
         <div ondrop="drop(event)" ondragover="allowDrop(event)" class="casilla" id="casilla6">
@@ -56,5 +56,6 @@
 
         </div>
     </div>
+    <script src="js.js"></script>
 </body>
 </html>
